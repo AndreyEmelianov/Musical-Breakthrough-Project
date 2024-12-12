@@ -145,15 +145,20 @@ a {
     box-sizing: border-box;
     padding: 30px;
     transition: var.$tr;
+    z-index: 1;
     &:hover {
-      background-color: var.$accent;
-      border-color: var.$accent;
-      &::after {
+      &::before {
+        width: 100%;
+        transform: translate(0, 0) scale(1);
         opacity: 1;
       }
       .banner__decor {
         background-color: var.$accent;
         border-color: var.$accent;
+        &::after {
+          opacity: 1;
+          transform: translate(0, 0) scale(1);
+        }
       }
     }
     & + & {
@@ -162,27 +167,17 @@ a {
     &::before {
       content: '';
       display: block;
-      width: 80px;
+      width: 0;
       height: 151px;
-      background-image: url(../images/banner-icons/banner-decor.svg);
-      background-repeat: no-repeat;
-      background-size: contain;
+      background-color: var.$accent;
+      border: 1px solid var.$accent;
+      border-radius: 20px 0 0 20px;
       position: absolute;
-      right: -80px;
-      top: 0;
-    }
-    &::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 151px;
-      background-image: url(../images/banner-icons/banner-decor-hover.svg);
-      background-repeat: no-repeat;
-      background-size: contain;
-      position: absolute;
-      right: -80px;
-      top: 0;
+      top: -1px;
+      right: 0;
+      z-index: -1;
       opacity: 0;
+      transform: translate(50%, 0) scale(0);
       transition: var.$tr;
     }
   }
@@ -200,6 +195,33 @@ a {
     border-radius: 10px;
     box-sizing: border-box;
     transition: var.$tr;
+    &::before {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 151px;
+      background-image: url(../images/banner-icons/banner-decor.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    &::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 151px;
+      background-image: url(../images/banner-icons/banner-decor-hover.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      right: 0;
+      top: 0;
+      opacity: 0;
+      transition: var.$tr;
+      transform: translate(-50%, 0) scale(0);
+    }
   }
 
   &__title {
