@@ -17,6 +17,7 @@
     "webpack-dev-server": "^5.1.0"
   },
   "dependencies": {
-    "html-webpack-plugin": "^5.6.3"
+    "html-webpack-plugin": "^5.6.3",
+    "swiper": "^11.1.15"
   }
 }
