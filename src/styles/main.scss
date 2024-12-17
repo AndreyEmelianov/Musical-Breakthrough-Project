@@ -582,3 +582,68 @@ body::-webkit-scrollbar-thumb:hover {
     margin-bottom: 0;
   }
 }
+
+.result {
+  margin-top: 120px;
+  margin-bottom: 120px;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+  }
+  &__item {
+    background-color: var.$light;
+    border-radius: 20px;
+    padding: 20px;
+    &._subgrid {
+      grid-column: 2 / 5;
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-template-rows: 130px;
+      align-items: center;
+    }
+  }
+  &__btn {
+    grid-column: 2 / 4;
+    background-color: var.$accent;
+    align-self: stretch;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 110%;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var.$light;
+    border: 1px solid var.$accent;
+    padding: 30px;
+    cursor: pointer;
+    transition: var.$tr;
+    @media (hover: hover) {
+      &:hover {
+        color: var.$accent;
+        background-color: transparent;
+      }
+    }
+  }
+  &__text {
+    color: var.$dark;
+    font-size: 16px;
+    line-height: 150%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    gap: 20px;
+    span {
+      width: fit-content;
+      display: block;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 110%;
+      background-color: var.$accent;
+      border-radius: 10px;
+      padding: 10px;
+      color: var.$light;
+    }
+  }
+}
